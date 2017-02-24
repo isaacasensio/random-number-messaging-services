@@ -1,7 +1,5 @@
 package com.github.iam.sink;
 
-import com.github.iam.filter.EvenFilteringApplication;
-import com.github.iam.enrich.EnrichAndMultiplyApplication;
 import com.github.iam.model.TimedNumber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,5 @@
 package com.github.iam.enrich;
 
-import com.github.iam.filter.EvenFilteringApplication;
-import com.github.iam.sink.NumberSinkApplication;
 import com.github.iam.model.Number;
 import com.github.iam.model.TimedNumber;
 import org.springframework.beans.factory.annotation.Autowired;

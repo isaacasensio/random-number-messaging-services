@@ -1,7 +1,7 @@
 package com.github.iam;
 
-import com.github.iam.filter.FilteringChannels;
 import com.github.iam.filter.EvenFilteringApplication;
+import com.github.iam.filter.FilteringChannels;
 import com.github.iam.model.Number;
 import com.sun.tools.javac.util.List;
 import org.junit.Test;

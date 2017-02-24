@@ -1,7 +1,7 @@
 package com.github.iam;
 
-import com.github.iam.enrich.EnricherChannels;
 import com.github.iam.enrich.EnrichAndMultiplyApplication;
+import com.github.iam.enrich.EnricherChannels;
 import com.github.iam.model.Number;
 import com.github.iam.model.TimedNumber;
 import org.junit.Before;

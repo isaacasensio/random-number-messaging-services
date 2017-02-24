@@ -1,10 +1,9 @@
 package com.github.iam;
 
-import com.github.iam.filter.EvenFilteringApplication;
-import com.github.iam.sink.SinkChannels;
 import com.github.iam.model.Number;
 import com.github.iam.model.TimedNumber;
 import com.github.iam.sink.NumberSinkApplication;
+import com.github.iam.sink.SinkChannels;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
