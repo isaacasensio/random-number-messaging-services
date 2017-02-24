@@ -1,28 +1,15 @@
-package com.github.iam;
+package com.github.iam.model;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class SensorData {
+public class Number {
 
-    private String name;
-    private Float value;
+    protected Integer value;
 
-    public SensorData() {
-    }
-
-    public SensorData(String name, Float value) {
-        this.name = name;
+    public Number(Integer value) {
         this.value = value;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Float getValue() {
-        return value;
     }
 
     @Override
@@ -36,10 +23,9 @@ public class SensorData {
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        SensorData that = (SensorData) o;
+        Number that = (Number) o;
 
         return new EqualsBuilder()
-                .append(name, that.name)
                 .append(value, that.value)
                 .isEquals();
     }
@@ -47,8 +33,16 @@ public class SensorData {
     @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
-                .append(name)
                 .append(value)
                 .toHashCode();
+    }
+
+
+    public Integer getValue() {
+        return value;
+    }
+
+    public boolean isOdd() {
+        return value % 2 == 0;
     }
 }
