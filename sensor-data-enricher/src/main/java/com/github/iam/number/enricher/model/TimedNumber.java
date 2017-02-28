@@ -1,4 +1,4 @@
-package com.github.iam.model;
+package com.github.iam.number.enricher.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -7,30 +7,31 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.time.Clock;
 
+import static org.apache.commons.lang3.builder.ToStringStyle.NO_CLASS_NAME_STYLE;
+
 public class TimedNumber {
 
     @JsonProperty
-    private Number number;
+    private Integer number;
 
     @JsonProperty
-    private long currentTimeMillis;
+    private Long createdAt;
 
-    public TimedNumber(Number number, Clock clock) {
-        this.number = number;
-        currentTimeMillis = clock.millis();
+    public TimedNumber() {
     }
 
-    public long getCurrentTimeMillis() {
-        return currentTimeMillis;
+    public TimedNumber(Integer number, Clock clock) {
+        this.number = number;
+        this.createdAt = clock.millis();
+    }
+
+    public TimedNumber(Number number, Clock clock) {
+        this(number.getValue(), clock);
     }
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
-    }
-
-    public Number getNumber() {
-        return number;
+        return ToStringBuilder.reflectionToString(this, NO_CLASS_NAME_STYLE);
     }
 
     @Override
@@ -42,7 +43,7 @@ public class TimedNumber {
         TimedNumber that = (TimedNumber) o;
 
         return new EqualsBuilder()
-                .append(currentTimeMillis, that.currentTimeMillis)
+                .append(createdAt, that.createdAt)
                 .append(number, that.number)
                 .isEquals();
     }
@@ -51,11 +52,11 @@ public class TimedNumber {
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
                 .append(number)
-                .append(currentTimeMillis)
+                .append(createdAt)
                 .toHashCode();
     }
 
-    public Integer getValue() {
-        return number.getValue();
+    public Integer getNumber() {
+        return number;
     }
 }

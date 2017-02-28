@@ -1,8 +1,10 @@
-package com.github.iam.model;
+package com.github.iam.number.emitter.model;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import static org.apache.commons.lang3.builder.ToStringStyle.NO_CLASS_NAME_STYLE;
 
 public class Number {
 
@@ -14,7 +16,7 @@ public class Number {
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        return ToStringBuilder.reflectionToString(this, NO_CLASS_NAME_STYLE);
     }
 
     @Override

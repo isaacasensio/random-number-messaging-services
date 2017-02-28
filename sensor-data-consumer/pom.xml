@@ -4,12 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.iam</groupId>
-	<artifactId>sensor-data-consumer</artifactId>
+	<artifactId>number-consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>sensor-data-consumer</name>
-	<description>Demo project for Spring Boot</description>
+	<name>number-consumer</name>
+	<description>
+        Proof of concept that consumes and logs messages sent to a RabbitMQ exchange.
+    </description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -22,21 +24,33 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-	</properties>
+        <commons-lang3.version>3.5</commons-lang3.version>
+    </properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+
+        <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -50,6 +64,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth</artifactId>
+                <version>1.2.0.BUILD-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 
